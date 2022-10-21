@@ -1,6 +1,6 @@
 const express = require("express");
 const fileupload = require("express-fileupload");
-const fs = require('fs-extra');
+const fs = require('fs-extra');  // file-upload maybe;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
@@ -72,7 +72,7 @@ client.connect(err => {
     //     res.status(500).send({msg: ' Failed To Upload Image'})
     //   }
       // const newImg = fs.readFileSync(filePath);  // vid: 55_5.4;  large file er jonno GridFS, multer use kora jabe;
-      const newImg = file.data;  // loaclly save kore pore DB te pathanor bodole direct DB te save kora;
+      const newImg = req.files.file.data;  // loaclly save kore pore DB te pathanor bodole direct DB te save kora;
       const encodeImg = newImg.toString('base64');
       
       var image = {
